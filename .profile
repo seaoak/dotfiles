@@ -11,13 +11,27 @@ umask 022
 LANG=en_US.UTF-8
 export LANG
 
-# if running bash
-if [ -n "$BASH_VERSION" ]; then
-    # include .bashrc if it exists
-    if [ -f "$HOME/.bashrc" ]; then
-	. "$HOME/.bashrc"
-    fi
-fi
+export EDITOR=vi
 
 # set PATH so it includes user's private bin directories
 PATH="$HOME/bin:$HOME/.local/bin:$PATH"
+
+if [ -d "$HOME/perl5/perlbrew" ]; then
+	if [ -f "$HOME/perl5/perlbrew/etc/bashrc" ]; then
+		. ~/perl5/perlbrew/etc/bashrc
+	fi
+fi
+
+if [ -d "$HOME/.nvm" ]; then
+	export NVM_DIR="$HOME/.nvm"
+	if [ -s "$NVM_DIR/nvm.sh" ]; then
+		. "$NVM_DIR/nvm.sh"
+	fi
+fi
+
+if [ -d "$HOME/.pyenv" ]; then
+	export PYENV_ROOT="$HOME/.pyenv"
+	export PATH="$PYENV_ROOT/bin:$PATH"
+	eval "`pyenv init -`"
+	eval "`pyenv virtualenv-init -`"
+fi

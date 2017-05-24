@@ -117,17 +117,11 @@ if ! shopt -oq posix; then
   fi
 fi
 
+#=============================================================================
 # local settings
+
 bind '"\ep":history-search-backward'
 bind '"\en":history-search-forward'
 
-if [ -d "$HOME/.nvm" ]; then
-	export NVM_DIR="$HOME/.nvm"
-	[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-fi
-
-if [ -d "$HOME/perl5/perlbrew" ]; then
-	if [ -f "$HOME/perl5/perlbrew/etc/bashrc" ]; then
-		source ~/perl5/perlbrew/etc/bashrc
-	fi
-fi
+# http://qiita.com/delphinus/items/b04752bb5b64e6cc4ea9
+export LESS='-i -M -R'
