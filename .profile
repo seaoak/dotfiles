@@ -11,7 +11,8 @@ umask 022
 LANG=en_US.UTF-8
 export LANG
 
-export EDITOR=vi
+EDITOR=vi
+export EDITOR
 
 # set PATH so it includes user's private bin directories
 PATH="$HOME/bin:$HOME/.local/bin:$PATH"
@@ -23,15 +24,18 @@ if [ -d "$HOME/perl5/perlbrew" ]; then
 fi
 
 if [ -d "$HOME/.nvm" ]; then
-	export NVM_DIR="$HOME/.nvm"
+	NVM_DIR="$HOME/.nvm"
+	export NVM_DIR
 	if [ -s "$NVM_DIR/nvm.sh" ]; then
 		. "$NVM_DIR/nvm.sh"
 	fi
 fi
 
 if [ -d "$HOME/.pyenv" ]; then
-	export PYENV_ROOT="$HOME/.pyenv"
-	export PATH="$PYENV_ROOT/bin:$PATH"
+	PYENV_ROOT="$HOME/.pyenv"
+	export PYENV_ROOT
+	PATH="$PYENV_ROOT/bin:$PATH"
+	export PATH
 	eval "`pyenv init -`"
 	if [ -d "$HOME/.pyenv/plugins/pyenv-virtualenv" ]; then
 		eval "`pyenv virtualenv-init -`"
