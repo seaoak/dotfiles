@@ -4,3 +4,4 @@
 !/.bashrc
 !/.profile
 !/.tmux.conf
+!/update_node_modules.sh
